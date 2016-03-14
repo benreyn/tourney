@@ -25,11 +25,16 @@ class Tournament
     @matches = []
 
     (0...@byes).each do |i|
-      @matches.unshift([seeds.shift(), :bye])
+      @matches.push([seeds.shift(), :bye])
     end
 
     while seeds.size > 0
-      @matches.unshift([seeds.shift(), seeds.pop()])
+      @matches.push([seeds.shift(), seeds.pop()])
+    end
+    
+    (@rounds - 2).times do
+      half = @matches.size / 2
+      @matches = @matches[0, half].zip(@matches[half, half].reverse)
     end
 
   end
