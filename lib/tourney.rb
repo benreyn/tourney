@@ -19,7 +19,7 @@ class Tournament
 
     @rounds = rounds
 
-    @byes = @teams - (2 ** @rounds)
+    @byes = (2 ** @rounds) - @teams
     seeds = (1..@teams).to_a
 
     (0...@byes).each do |i|
