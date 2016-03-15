@@ -22,11 +22,9 @@ class Tournament
     @byes = (2 ** @rounds) - @teams
     seeds = (1..@teams).to_a
 
-    (0...@byes).each do |i|
-      seeds.push(:bye)
-    end
+    @byes.times { seeds.push(:bye) }
 
-    (@rounds).times do
+    @rounds.times do
       half = seeds.size / 2
       seeds = seeds[0, half].zip(seeds[half, half].reverse)
     end
