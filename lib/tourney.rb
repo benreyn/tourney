@@ -21,7 +21,7 @@ class Tournament
     @rounds = rounds
     next_pow_of_two = (2 ** @rounds)
     @byes = next_pow_of_two - @teams
-    @matches = next_pow_of_two - @byes
+    @matches = (@teams - @byes) / 2
     seeds = (1..@teams).to_a
 
     @byes.times { seeds.push(:bye) }
@@ -31,7 +31,7 @@ class Tournament
       seeds = seeds[0, half].zip(seeds[half, half].reverse)
     end
 
-    @bracket = seeds
+    @bracket = @rounds > 2 ? seeds.flatten(@rounds - 2) : seeds
 
   end
 
