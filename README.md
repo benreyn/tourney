@@ -20,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Tournament.new(8)
+```
+
+This will create a new tournament outline with 8 teams.
 
 ## Development
 
@@ -31,4 +35,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/breyno127/tourney.
-
