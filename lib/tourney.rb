@@ -5,6 +5,7 @@ class Tournament
   attr_reader :teams
   attr_reader :rounds
   attr_reader :byes
+  attr_reader :matches
   attr_reader :bracket
 
   def initialize(teams)
@@ -18,8 +19,9 @@ class Tournament
     end
 
     @rounds = rounds
-
-    @byes = (2 ** @rounds) - @teams
+    next_pow_of_two = (2 ** @rounds)
+    @byes = next_pow_of_two - @teams
+    @matches = next_pow_of_two - @byes
     seeds = (1..@teams).to_a
 
     @byes.times { seeds.push(:bye) }
@@ -30,6 +32,7 @@ class Tournament
     end
 
     @bracket = seeds
+
   end
 
 end
