@@ -24,7 +24,7 @@ class Tournament
 
     @byes.times { seeds.push(:bye) }
 
-    @rounds.times do
+    (@rounds - 1).times do
       half = seeds.size / 2
       seeds = seeds[0, half].zip(seeds[half, half].reverse)
     end
