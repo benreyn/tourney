@@ -12,9 +12,9 @@ class Tournament
 
     @teams = teams
 
-    rounds = teams % 2 == 0 ? 0 : 1
+    rounds = 0
     while teams > 1
-      teams /= 2
+      (teams /= 2.0).ceil
       rounds += 1
     end
 
