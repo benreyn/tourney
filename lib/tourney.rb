@@ -11,7 +11,7 @@ class Tournament
 
     @teams = teams
 
-    rounds = 0
+    rounds = teams % 2 == 0 ? 0 : 1
     while teams > 1
       teams /= 2
       rounds += 1
